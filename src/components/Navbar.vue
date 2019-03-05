@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <div class="nav-wrapper green">
+        <div class="nav-wrapper blue">
             <div class="conatainer">
                 <router-link to="/" class="brand-logo">Employee Manager</router-link>
             </div>
