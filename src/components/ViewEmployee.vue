@@ -1,25 +1,36 @@
 <template>
+
     <div id="view-employee">
+
         <!-- Adding data for employees -->
         <ul class="collection with-header">
-            <li class="collection-header">
+            
+            <li class="collection-header center #ffd740 amber accent-2">
                 <h4>{{name}}</h4>
             </li>
-            <li class="collection-item">Employee ID#: {{employee_id}}</li>
-            <li class="collection-item">Department: {{dept}}</li>
-            <li class="collection-item">Position: {{position}}</li>
+            
+            <li class="collection-item #ffe57f amber accent-1"><span>Workers ID:</span> {{employee_id}}</li>
+            <li class="collection-item #ffe57f amber accent-1"><span>Sector:</span> {{dept}}</li>
+            <li class="collection-item #ffe57f amber accent-1"><span>Position:</span> {{position}}</li>
+
         </ul>
         
         <!-- Setting button to geting back to home page -->
-        <router-link to="/" class="btn grey">Back</router-link>
+        <router-link to="/" class="btn #ffd740 amber accent-2 black-text">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </router-link>
 
         <!-- Button to delete  -->
-         <button @click="deleteEmployee" class="btn red">Delete</button>
+         <button @click="deleteEmployee" class="btn red">
+            <i class="far fa-trash-alt"></i>
+            Delete           
+         </button>
 
          <!-- Button to edit current worker -->
         <div class="fixed-action-btn" >
             <router-link v-bind:to="{ name:'edit-employee', params:{employee_id: employee_id}}" class="btn-floating btn-large red" >
-                <i class="fa fa-user-edit"></i>
+                <i class="fa fa-user-edit orange red-text"></i>
             </router-link>
         </div>
 
@@ -86,7 +97,7 @@ export default {
 
         // Method for deleting employee on clicking the button
         deleteEmployee () {
-        if(confirm ('Are you sure?')) {
+        if(confirm ('Are you sure you want to delete workers data?')) {
           // Connecting to database and using '$route' - router to access params and employee id in them
           db.collection('employees').where('employee_id', '==', this.$route.params.employee_id).get()
           .then((querySnapshot) => {
@@ -105,3 +116,18 @@ export default {
   }
 
 </script>  
+
+
+<style scoped>
+
+#view-employee {
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+}
+
+span {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+</style>

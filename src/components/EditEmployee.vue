@@ -1,19 +1,24 @@
 <template>
+
     <div id="edit-employee">
 
-        <h3>Edit Employee</h3>
+        <h3 class="center #ffecb3 amber lighten-4">
+            <i class="fas fa-edit red-text"></i>
+            Edit workers data: 
+        </h3>
         
-        <div class="row">
+        <div class="row #fff9c4 yellow lighten-4">
             <!-- Creating form and event that will trigger function to save employee data -->
             <form @submit.prevent="updateEmployee" class="col s12">
 
                 <!-- Creating row as a input field and bind dat to database  -->
+
                 <!-- Row for ID -->
                 <div class="row">
                     <div class="input-field col s12">
                         <input disabled type="text" v-model="employee_id" required>
                     </div>
-                    <label>Employee ID#</label>
+                    <label>Employee ID</label>
                 </div>
 
                 <!-- Row for Name -->
@@ -21,7 +26,7 @@
                     <div class="input-field col s12">
                         <input type="text" v-model="name" required>
                     </div>
-                    <label>Name#</label>
+                    <label>Name</label>
                 </div>
 
                 <!-- Row for Department -->
@@ -29,7 +34,7 @@
                     <div class="input-field col s12">
                         <input type="text" v-model="dept" required>
                     </div>
-                    <label>Department#</label>
+                    <label>Sector</label>
                 </div>
 
                 <!-- Row for Position -->
@@ -37,14 +42,20 @@
                     <div class="input-field col s12">
                         <input type="text" v-model="position" required>
                     </div>
-                    <label>Position#</label>
+                    <label>Position</label>
                 </div>
 
                 <!-- Adding button for submit -->
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn red">
+                    <i class="fas fa-pencil-alt"></i>
+                    Edit
+                </button>
 
                 <!-- Cansel button to go back to homepage as router link is created also -->
-                <router-link to="/" class="btn grey">Cancel</router-link>
+                <router-link to="/" class="btn grey black-text">
+                    <i class="fas fa-ban black-text"></i>
+                    Cancel
+                </router-link>
 
             </form>
         </div>
@@ -131,3 +142,16 @@ export default {
         }
     }
 </script>
+
+
+<style scoped>
+
+h3 {
+    padding: 3% 0;
+}
+
+.row{
+    padding: 0 3%; 
+}
+
+</style>
